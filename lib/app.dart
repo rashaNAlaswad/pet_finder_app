@@ -3,12 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/router/app_router.dart';
 import '../core/theme/app_theme.dart';
+import 'core/router/routes.dart';
 
 class MainApp extends StatelessWidget {
-  const MainApp({
-    super.key,
-    required this.appRouter,
-  });
+  const MainApp({super.key, required this.appRouter});
 
   final AppRouter appRouter;
 
@@ -21,6 +19,7 @@ class MainApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: appTheme(),
+        initialRoute: Routes.onboarding,
         onGenerateRoute: appRouter.onGenerateRoute,
       ),
     );
