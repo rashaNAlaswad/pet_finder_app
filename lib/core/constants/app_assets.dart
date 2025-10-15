@@ -4,6 +4,8 @@ class AppIcons {
   static const String svgBasePath = 'assets/svgs';
 
   static const String pets = '$svgBasePath/pets.svg';
+  static const String heart = '$svgBasePath/heart.svg';
+  static const String search = '$svgBasePath/search.svg';
 }
 
 class AppImages {
