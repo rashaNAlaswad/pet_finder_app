@@ -1,0 +1,21 @@
+import '../mappers/breed_mapper.dart';
+
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../../../core/networking/api_service.dart';
+import '../../domain/entities/breed.dart';
+
+class BreedRemoteDataSource {
+  final ApiService _apiService;
+  BreedRemoteDataSource(this._apiService);
+
+  Future<ApiResult<List<Breed>>> getBreeds() async {
+    try {
+      final response = await _apiService.getBreeds();
+      final breeds = BreedMapper.toDomainList(response);
+      return ApiResult.success(breeds);
+    } catch (e) {
+      return ApiResult.failure(ApiErrorHandler.handle(e));
+    }
+  }
+}
