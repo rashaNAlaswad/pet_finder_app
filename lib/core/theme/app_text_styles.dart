@@ -25,4 +25,22 @@ class AppTextStyles {
     fontWeight: AppFontWeight.regular,
     color: AppColors.grey,
   );
+
+  static TextStyle font18blackBold = GoogleFonts.poppins(
+    fontSize: 18.sp,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.black,
+  );
+
+  static TextStyle font24blackBold = GoogleFonts.poppins(
+    fontSize: 24.sp,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.black,
+  );
+
+  static TextStyle font16blackMedium = GoogleFonts.poppins(
+    fontSize: 16.sp,
+    fontWeight: AppFontWeight.medium,
+    color: AppColors.black,
+  );
 }
