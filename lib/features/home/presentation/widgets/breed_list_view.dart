@@ -11,18 +11,39 @@ class BreedListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
+        List items = [];
+
         if (state is HomeSuccess) {
-          return ListView.separated(
-            itemCount: state.breeds.length,
+          items = state.breeds;
+        } else if (state is HomeLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        final cubit = context.read<HomeCubit>();
+
+        if (items.isEmpty) {
+          return const Center(child: Text('No results found'));
+        }
+
+        return RefreshIndicator(
+          onRefresh: () => cubit.refresh(),
+          child: ListView.separated(
+            controller: cubit.scrollController,
+            itemCount: items.length + (cubit.isFetching ? 1 : 0),
             itemBuilder: (context, index) {
-              return PetItem(breed: state.breeds[index]);
+              if (index < items.length) {
+                return PetItem(breed: items[index]);
+              }
+              return const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: Center(child: CircularProgressIndicator()),
+              );
             },
             separatorBuilder: (BuildContext context, int index) {
               return verticalSpace(16);
             },
-          );
-        }
-        return const SizedBox.shrink();
+          ),
+        );
       },
     );
   }
