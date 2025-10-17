@@ -20,7 +20,10 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<BreedResponse>> getBreeds({int limit = 10, int page = 0}) async {
+  Future<List<BreedResponse>> getBreeds({
+    int limit = ApiConstants.defaultLimit,
+    int page = ApiConstants.defaultPage,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'limit': limit, r'page': page};
     final _headers = <String, dynamic>{};
@@ -58,7 +61,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'breeds/:breed_id',
+            'breeds/${breedId}',
             queryParameters: queryParameters,
             data: _data,
           )

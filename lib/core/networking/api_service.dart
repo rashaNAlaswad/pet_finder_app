@@ -19,5 +19,7 @@ abstract class ApiService {
   });
 
   @GET(ApiUrls.breedById)
-  Future<BreedResponse> getBreedById(@Path('breed_id') String breedId);
+  Future<BreedResponse> getBreedById(
+    @Path(ApiConstants.breedIdPathParam) String breedId,
+  );
 }
