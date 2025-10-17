@@ -2,6 +2,9 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
+import '../../features/favourite/data/models/post_favourite_request_body.dart';
+import '../../features/favourite/data/models/get_favourite_response.dart';
+import '../../features/favourite/data/models/post_favourite_response.dart';
 import '../../features/home/data/models/breed_response.dart';
 import '../constants/api_constants.dart';
 import 'api_urls.dart';
@@ -22,4 +25,17 @@ abstract class ApiService {
   Future<BreedResponse> getBreedById(
     @Path(ApiConstants.breedIdPathParam) String breedId,
   );
+
+  @GET(ApiUrls.getFavourites)
+  Future<List<GetFavouriteResponse>> getFavourites();
+
+  @POST(ApiUrls.getFavourites)
+  Future<PostFavouriteResponse> addFavourite({
+    @Body() required PostFavouriteRequestBody postFavouriteRequestBody,
+  });
+
+  @DELETE(ApiUrls.deleteFavourite)
+  Future<String> removeFavourite({
+    @Path(ApiConstants.favouriteIdPathParam) required String favouriteId,
+  });
 }

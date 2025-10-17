@@ -8,6 +8,7 @@ class ApiConstants {
   static const String limitQueryParam = 'limit';
   static const String pageQueryParam = 'page';
   static const String breedIdPathParam = 'breed_id';
+  static const String favouriteIdPathParam = 'favourite_id';
 
   // default values
   static const int defaultLimit = 10;
