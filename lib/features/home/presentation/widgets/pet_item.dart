@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import '../../../../core/helper/navigation_extensions.dart';
+import '../../../../core/router/routes.dart';
+
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/helper/image_extension.dart';
 import '../../../../core/helper/spacing.dart';
@@ -18,31 +21,34 @@ class PetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final imageUrl = breed.referenceImageId?.toImageUrl();
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: AppColors.white,
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.black.withAlpha(10),
-            offset: const Offset(0, 4),
-            blurRadius: 4,
-          ),
-        ],
-      ),
-      child: Card(
-        elevation: 2,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildPetImage(imageUrl),
-              horizontalSpace(16),
-              Expanded(child: _buildTextContent()),
-              horizontalSpace(10),
-              SvgPicture.asset(AppIcons.heart, width: 20.w, height: 20.h),
-            ],
+    return GestureDetector(
+      onTap: () => context.pushNamed(Routes.details, arguments: breed.id),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: AppColors.white,
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.black.withAlpha(10),
+              offset: const Offset(0, 4),
+              blurRadius: 4,
+            ),
+          ],
+        ),
+        child: Card(
+          elevation: 2,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildPetImage(imageUrl),
+                horizontalSpace(16),
+                Expanded(child: _buildTextContent()),
+                horizontalSpace(10),
+                SvgPicture.asset(AppIcons.heart, width: 20.w, height: 20.h),
+              ],
+            ),
           ),
         ),
       ),
