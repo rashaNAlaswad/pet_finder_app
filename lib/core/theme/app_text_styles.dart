@@ -43,4 +43,10 @@ class AppTextStyles {
     fontWeight: AppFontWeight.medium,
     color: AppColors.black,
   );
+
+  static TextStyle font28blackBold = GoogleFonts.poppins(
+    fontSize: 28.sp,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.black,
+  );
 }
