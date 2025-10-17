@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-import '../constants/api_constants.dart';
 import 'api_error_model.dart';
 
 class ApiErrorHandler {
@@ -36,29 +35,7 @@ class ApiErrorHandler {
     }
   }
 
-  static ApiErrorModel _handleError(dynamic data) {
-    if (data is Map<String, dynamic>) {
-      final statusCode = data[ApiConstants.statusCode] as int?;
-      final message =
-          data[ApiConstants.message]?.toString() ?? "Operation failed";
-      final errors = (data[ApiConstants.errors] is Map<String, dynamic>)
-          ? Map<String, List<String>>.from(
-              (data[ApiConstants.errors] as Map).map(
-                (key, value) => MapEntry(
-                  key.toString(),
-                  (value as List).map((e) => e.toString()).toList(),
-                ),
-              ),
-            )
-          : const <String, List<String>>{};
-
-      return ApiErrorModel(
-        statusCode: statusCode,
-        message: message,
-        errors: errors,
-      );
-    } else {
-      return ApiErrorModel(message: "Unexpected error format");
-    }
+  static ApiErrorModel _handleError(String message) {
+    return ApiErrorModel(message: message);
   }
 }
