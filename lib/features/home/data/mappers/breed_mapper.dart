@@ -14,17 +14,6 @@ class BreedMapper {
       origin: breedResponse.origin,
       description: breedResponse.description,
       lifeSpan: breedResponse.lifeSpan,
-      altNames: breedResponse.altNames ?? '',
-      adaptability: breedResponse.adaptability,
-      affectionLevel: breedResponse.affectionLevel,
-      childFriendly: breedResponse.childFriendly,
-      dogFriendly: breedResponse.dogFriendly,
-      energyLevel: breedResponse.energyLevel,
-      grooming: breedResponse.grooming,
-      healthIssues: breedResponse.healthIssues,
-      intelligence: breedResponse.intelligence,
-      socialNeeds: breedResponse.socialNeeds,
-      strangerFriendly: breedResponse.strangerFriendly,
       referenceImageId: breedResponse.referenceImageId ?? '',
     );
   }

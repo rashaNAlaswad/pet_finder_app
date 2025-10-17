@@ -1,10 +1,9 @@
 import '../../../../core/constants/api_constants.dart';
-import '../mappers/breed_mapper.dart';
-
 import '../../../../core/networking/api_error_handler.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../../../core/networking/api_service.dart';
 import '../../domain/entities/breed.dart';
+import '../mappers/breed_mapper.dart';
 
 class BreedRemoteDataSource {
   final ApiService _apiService;
