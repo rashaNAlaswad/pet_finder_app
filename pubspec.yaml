@@ -57,6 +57,12 @@ dev_dependencies:
   # Code generator
   build_runner: ^2.4.15
   json_serializable: ^6.9.5
+  
+  # Testing
+  mockito: ^5.4.4
+  bloc_test: ^9.1.5
+  integration_test:
+    sdk: flutter
 
 
 flutter:
