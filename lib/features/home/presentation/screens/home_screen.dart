@@ -10,20 +10,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state is HomeSuccess) {
-              return const HomeSuccessView();
-            } else if (state is HomeFailure) {
-              return HomeErrorView(error: state.error);
-            } else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
-        ),
-      ),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        if (state is HomeSuccess) {
+          return const HomeSuccessView();
+        } else if (state is HomeFailure) {
+          return HomeErrorView(error: state.error);
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }
