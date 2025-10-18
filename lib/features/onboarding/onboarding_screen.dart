@@ -34,7 +34,7 @@ class OnboardingScreen extends StatelessWidget {
         buttonText: "Get Started",
         buttonIcon: AppIcons.pets,
         onPressed: () {
-          context.pushNamed(Routes.home);
+          context.pushNamed(Routes.navigation);
         },
       ),
     );
