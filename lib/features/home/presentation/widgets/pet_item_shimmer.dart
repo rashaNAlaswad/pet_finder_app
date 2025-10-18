@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/theme/app_colors.dart';
 import '../../../../core/widgets/shimmer_loading.dart';
 import '../../../../core/helper/spacing.dart';
 
@@ -45,7 +46,7 @@ class PetItemShimmer extends StatelessWidget {
         width: 100.w,
         height: 100.h,
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.3),
+          color: AppColors.grey.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(8),
         ),
       ),
@@ -71,7 +72,7 @@ class PetItemShimmer extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.3),
+          color: AppColors.grey.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(4),
         ),
       ),
@@ -84,7 +85,7 @@ class PetItemShimmer extends StatelessWidget {
         width: 20.w,
         height: 20.h,
         decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.3),
+          color: AppColors.grey.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(4),
         ),
       ),
