@@ -49,11 +49,6 @@ class _HomeSuccessViewState extends State<HomeSuccessView> {
                 onChanged: (value) => context.read<HomeCubit>().search(value),
               ),
               verticalSpace(20),
-              Text(
-                'Categories',
-                style: AppTextStyles.font24blackBold.copyWith(fontSize: 20),
-              ),
-              verticalSpace(20),
               Expanded(child: BreedListView()),
             ],
           ),

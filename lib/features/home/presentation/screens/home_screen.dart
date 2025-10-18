@@ -4,6 +4,7 @@ import '../cubit/home_cubit.dart';
 
 import '../widgets/home_error_view.dart';
 import '../widgets/home_success_view.dart';
+import '../widgets/home_shimmer_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         } else if (state is HomeFailure) {
           return HomeErrorView(error: state.error);
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const HomeShimmerView();
         }
       },
     );
